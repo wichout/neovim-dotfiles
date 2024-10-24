@@ -62,6 +62,15 @@ return {
           width = 0.6,
           height = 0.6,
         },
+        file_ignore_patterns = {
+          'node_modules',
+          '.git',
+        },
+      },
+      pickers = {
+        find_files = {
+          hidden = true,
+        },
       },
       extensions = {
         ['ui-select'] = {
