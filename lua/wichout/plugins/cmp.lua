@@ -33,6 +33,7 @@ return { -- Autocompletion
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+    'onsails/lspkind.nvim',
   },
   config = function()
     -- See `:help cmp`
@@ -40,7 +41,59 @@ return { -- Autocompletion
     local luasnip = require 'luasnip'
     luasnip.config.setup {}
 
+    -- Customize colors
+    vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#282C34', fg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'Pmenu', { fg = '#C5CDD9', bg = '#22252A' })
+
+    vim.api.nvim_set_hl(0, 'CmpItemAbbrDeprecated', { fg = '#7E8294', bg = 'NONE', strikethrough = true })
+    vim.api.nvim_set_hl(0, 'CmpItemAbbrMatch', { fg = '#82AAFF', bg = 'NONE', bold = true })
+    vim.api.nvim_set_hl(0, 'CmpItemAbbrMatchFuzzy', { fg = '#82AAFF', bg = 'NONE', bold = true })
+    vim.api.nvim_set_hl(0, 'CmpItemMenu', { fg = '#C792EA', bg = 'NONE', italic = true })
+
+    vim.api.nvim_set_hl(0, 'CmpItemKindField', { fg = '#82f5ff', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { fg = '#82f5ff', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindEvent', { fg = '#82f5ff', bg = 'NONE' })
+
+    vim.api.nvim_set_hl(0, 'CmpItemKindText', { fg = '#C3E88D', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindEnum', { fg = '#C3E88D', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindKeyword', { fg = '#C3E88D', bg = 'NONE' })
+
+    vim.api.nvim_set_hl(0, 'CmpItemKindConstant', { fg = '#FFE082', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindConstructor', { fg = '#FFE082', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindReference', { fg = '#FFE082', bg = 'NONE' })
+
+    vim.api.nvim_set_hl(0, 'CmpItemKindStruct', { fg = '#ffe082', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindClass', { fg = '#ffe082', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindModule', { fg = '#ffe082', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindOperator', { fg = '#ffe082', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindInterface', { fg = '#ffe082', bg = 'NONE' })
+
+    vim.api.nvim_set_hl(0, 'CmpItemKindVariable', { fg = '#C5CDD9', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindFile', { fg = '#C5CDD9', bg = 'NONE' })
+
+    vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { fg = '#F5EBD9', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindSnippet', { fg = '#F5EBD9', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindFolder', { fg = '#F5EBD9', bg = 'NONE' })
+
+    vim.api.nvim_set_hl(0, 'CmpItemKindFunction', { fg = '#d9c5d8', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindMethod', { fg = '#d9c5d8', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindValue', { fg = '#d9c5d8', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindEnumMember', { fg = '#d9c5d8', bg = 'NONE' })
+
+    vim.api.nvim_set_hl(0, 'CmpItemKindColor', { fg = '#D8EEEB', bg = '#58B5A8' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindTypeParameter', { fg = '#D8EEEB', bg = 'NONE' })
+
     cmp.setup {
+      formatting = {
+        fields = { 'kind', 'abbr' },
+        format = function(entry, vim_item)
+          local kind = require('lspkind').cmp_format { mode = 'symbol_text', maxwidth = 50 }(entry, vim_item)
+          local strings = vim.split(kind.kind, '%s', { trimempty = true })
+          kind.kind = ' ' .. (strings[1] or '') .. ' '
+          kind.menu = '    (' .. (strings[2] or '') .. ')'
+          return kind
+        end,
+      },
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
@@ -48,6 +101,16 @@ return { -- Autocompletion
       },
       completion = { completeopt = 'menu,menuone,noinsert' },
 
+      window = {
+        completion = {
+          winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,Search:None',
+          col_offset = -3,
+          side_padding = 0,
+        },
+        documentation = {
+          winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,Search:None',
+        },
+      },
       -- For an understanding of why these mappings were
       -- chosen, you will need to read `:help ins-completion`
       --
@@ -110,6 +173,7 @@ return { -- Autocompletion
         { name = 'luasnip' },
         { name = 'path' },
       },
+      require('lspkind').init(),
     }
   end,
 }

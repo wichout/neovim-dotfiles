@@ -45,6 +45,7 @@ return {
 
     -- [[ Configure Telescope ]]
     -- See `:help telescope` and `:help telescope.setup()`
+    --
     require('telescope').setup {
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
@@ -57,6 +58,9 @@ return {
       -- pickers = {}
       defaults = {
         sorting_strategy = 'ascending',
+        prompt_prefix = '   ',
+        selection_caret = ' ● ',
+        path_display = { 'truncate' },
         layout_config = {
           prompt_position = 'top',
           width = 0.6,

@@ -11,7 +11,7 @@ return {
     ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║
     ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝
     ]]
-    logo = string.rep('\n', 8) .. logo .. '\n\n\n'
+    logo = string.rep('\n', 8) .. logo .. '\n\n\n[ -- Welcome Wichout -- ]' .. '\n\n\n'
 
     require('dashboard').setup {
       theme = 'doom',
