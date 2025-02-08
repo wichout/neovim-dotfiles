@@ -42,57 +42,53 @@ return { -- Autocompletion
     luasnip.config.setup {}
 
     -- Customize colors
-    vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#282C34', fg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'Pmenu', { fg = '#C5CDD9', bg = '#22252A' })
-
     vim.api.nvim_set_hl(0, 'CmpItemAbbrDeprecated', { fg = '#7E8294', bg = 'NONE', strikethrough = true })
     vim.api.nvim_set_hl(0, 'CmpItemAbbrMatch', { fg = '#82AAFF', bg = 'NONE', bold = true })
     vim.api.nvim_set_hl(0, 'CmpItemAbbrMatchFuzzy', { fg = '#82AAFF', bg = 'NONE', bold = true })
     vim.api.nvim_set_hl(0, 'CmpItemMenu', { fg = '#C792EA', bg = 'NONE', italic = true })
 
-    vim.api.nvim_set_hl(0, 'CmpItemKindField', { fg = '#82f5ff', bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { fg = '#82f5ff', bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'CmpItemKindEvent', { fg = '#82f5ff', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindField', { fg = '#5F8BDE', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { fg = '#5F8BDE', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindEvent', { fg = '#5F8BDE', bg = 'NONE' })
 
-    vim.api.nvim_set_hl(0, 'CmpItemKindText', { fg = '#C3E88D', bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'CmpItemKindEnum', { fg = '#C3E88D', bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'CmpItemKindKeyword', { fg = '#C3E88D', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindText', { fg = '#D6D3B8', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindKeyword', { fg = '#D6D3B8', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindOperator', { fg = '#D6D3B8', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindFile', { fg = '#D6D3B8', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { fg = '#D6D3B8', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindFolder', { fg = '#D6D3B8', bg = 'NONE' })
 
-    vim.api.nvim_set_hl(0, 'CmpItemKindConstant', { fg = '#FFE082', bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'CmpItemKindConstructor', { fg = '#FFE082', bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'CmpItemKindReference', { fg = '#FFE082', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindVariable', { fg = '#DE7B5F', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindConstant', { fg = '#DE7B5F', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindReference', { fg = '#DE7B5F', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindSnippet', { fg = '#DE7B5F', bg = 'NONE' })
 
-    vim.api.nvim_set_hl(0, 'CmpItemKindStruct', { fg = '#ffe082', bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'CmpItemKindClass', { fg = '#ffe082', bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'CmpItemKindModule', { fg = '#ffe082', bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'CmpItemKindOperator', { fg = '#ffe082', bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'CmpItemKindInterface', { fg = '#ffe082', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindStruct', { fg = '#DEC55F', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindClass', { fg = '#DEC55F', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindModule', { fg = '#DEC55F', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindInterface', { fg = '#DEC55F', bg = 'NONE' })
 
-    vim.api.nvim_set_hl(0, 'CmpItemKindVariable', { fg = '#C5CDD9', bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'CmpItemKindFile', { fg = '#C5CDD9', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindConstructor', { fg = '#AD5FDE', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindFunction', { fg = '#AD5FDE', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindMethod', { fg = '#AD5FDE', bg = 'NONE' })
 
-    vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { fg = '#F5EBD9', bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'CmpItemKindSnippet', { fg = '#F5EBD9', bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'CmpItemKindFolder', { fg = '#F5EBD9', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindValue', { fg = '#5FDEB2', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindEnum', { fg = '#5FDEB2', bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindEnumMember', { fg = '#5FDEB2', bg = 'NONE' })
 
-    vim.api.nvim_set_hl(0, 'CmpItemKindFunction', { fg = '#d9c5d8', bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'CmpItemKindMethod', { fg = '#d9c5d8', bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'CmpItemKindValue', { fg = '#d9c5d8', bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'CmpItemKindEnumMember', { fg = '#d9c5d8', bg = 'NONE' })
-
-    vim.api.nvim_set_hl(0, 'CmpItemKindColor', { fg = '#D8EEEB', bg = '#58B5A8' })
+    vim.api.nvim_set_hl(0, 'CmpItemKindColor', { fg = '#D8EEEB', bg = 'NONE' })
     vim.api.nvim_set_hl(0, 'CmpItemKindTypeParameter', { fg = '#D8EEEB', bg = 'NONE' })
 
     cmp.setup {
       formatting = {
-        fields = { 'kind', 'abbr' },
+        fields = { 'abbr', 'kind' },
         format = function(entry, vim_item)
-          local kind = require('lspkind').cmp_format { mode = 'symbol_text', maxwidth = 50 }(entry, vim_item)
+          local kind = require('lspkind').cmp_format { mode = 'symbol_text', maxwidth = 25, ellipsis_char = '...' }(entry, vim_item)
           local strings = vim.split(kind.kind, '%s', { trimempty = true })
-          kind.kind = ' ' .. (strings[1] or '') .. ' '
-          kind.menu = '    (' .. (strings[2] or '') .. ')'
+          kind.kind = (strings[1] or '') .. '  ' .. (strings[2] or '') .. ' '
           return kind
         end,
+        expandable_indicator = false,
       },
       snippet = {
         expand = function(args)
@@ -100,16 +96,9 @@ return { -- Autocompletion
         end,
       },
       completion = { completeopt = 'menu,menuone,noinsert' },
-
       window = {
-        completion = {
-          winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,Search:None',
-          col_offset = -3,
-          side_padding = 0,
-        },
-        documentation = {
-          winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,Search:None',
-        },
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
       },
       -- For an understanding of why these mappings were
       -- chosen, you will need to read `:help ins-completion`
@@ -117,9 +106,9 @@ return { -- Autocompletion
       -- No, but seriously. Please read `:help ins-completion`, it is really good!
       mapping = cmp.mapping.preset.insert {
         -- Select the [n]ext item
-        ['<C-n>'] = cmp.mapping.select_next_item(),
+        ['<C-n>'] = cmp.mapping.select_next_item { 'i' },
         -- Select the [p]revious item
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
+        ['<C-p>'] = cmp.mapping.select_prev_item { 'i' },
 
         -- Scroll the documentation window [b]ack / [f]orward
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),

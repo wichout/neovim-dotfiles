@@ -4,5 +4,8 @@ return {
   dependencies = {
     'nvim-telescope/telescope.nvim',
   },
-  opts = {},
+  opts = {
+    -- your options go here
+    preserve = true,
+  },
 }

@@ -2,16 +2,17 @@ return {
   'folke/trouble.nvim',
   opts = {
     modes = {
-      test = {
-        mode = 'diagnostics',
-        preview = {
-          type = 'split',
-          relative = 'win',
-          position = 'right',
-          size = 0.3,
-        },
-      },
+      -- test = {
+      --   mode = 'diagnostics',
+      --   preview = {
+      --     type = 'split',
+      --     relative = 'win',
+      --     position = 'right',
+      --     size = 0.3,
+      --   },
+      -- },
     },
+    auto_close = true,
   }, -- for default options, refer to the configuration section for custom setup.
   cmd = 'Trouble',
   keys = {

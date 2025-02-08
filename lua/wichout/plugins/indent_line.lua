@@ -6,7 +6,7 @@ return {
     main = 'ibl',
     opts = {
       indent = {
-        -- char = '▏',
+        char = '▏',
         -- tab_char = '▏',
         smart_indent_cap = true,
         repeat_linebreak = false,
@@ -14,7 +14,7 @@ return {
       scope = {
         enabled = true,
         show_start = false,
-        show_end = false,
+        -- show_end = false,
       },
       exclude = {
         filetypes = {

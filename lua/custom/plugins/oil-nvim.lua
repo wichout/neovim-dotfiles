@@ -5,8 +5,8 @@ return {
     require('oil').setup {
       columns = { 'icon' },
       keymaps = {
-        ['<C-h>'] = false,
-        ['<M-h>'] = 'actions.select_split',
+        ['H'] = 'actions.toggle_hidden',
+        ['q'] = 'actions.close',
       },
       view_options = {
         show_hidden = true,
@@ -15,9 +15,11 @@ return {
         max_width = 50,
         max_height = 20,
         border = 'rounded',
+        win_options = {
+          winhl = 'Normal:Normal,Float:Float',
+        },
       },
     }
-    -- vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
-    vim.keymap.set('n', '-', require('oil').toggle_float, { desc = 'Open parent directory in float window' })
+    vim.keymap.set('n', '<leader>oo', require('oil').toggle_float, { desc = '[O]pen [O]il' })
   end,
 }
