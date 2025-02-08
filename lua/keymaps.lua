@@ -17,10 +17,10 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Move the current line, or selected lines, up and down
-vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { desc = 'Move current line down' })
-vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { desc = 'Move current line up' })
-vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
-vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { desc = 'Move current line down', silent = true })
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { desc = 'Move current line up', silent = true })
+vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down', silent = true })
+vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up', silent = true })
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
