@@ -34,8 +34,6 @@ return {
         filter = {
           event = 'msg_show',
           kind = '',
-          find = 'written',
-          max_width = 30,
         },
         opts = { skip = true },
       },

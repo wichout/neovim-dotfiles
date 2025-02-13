@@ -11,7 +11,7 @@ return {
     ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║
     ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝
     ]]
-    logo = string.rep('\n', 8) .. logo .. '\n\n\n[ -- Welcome Wichout -- ]' .. '\n\n\n'
+    logo = string.rep('\n', 8) .. logo .. '\n\n\n[ -- Welcome Wichout -- ]' .. '\n\n'
 
     require('dashboard').setup {
       theme = 'doom',
@@ -19,9 +19,10 @@ return {
         header = vim.split(logo, '\n'),
         center = {
           { icon = ' ', key = 'f', desc = 'Open File     ', action = 'Telescope find_files' },
-          { icon = ' ', key = 'n', desc = 'New File      ', action = 'ene | startinsert' },
+          -- { icon = ' ', key = 'n', desc = 'New File      ', action = 'ene | startinsert' },
           { icon = ' ', key = 'r', desc = 'Recent Files  ', action = 'Telescope oldfiles' },
           { icon = '󰒲 ', key = 'l', desc = 'Lazy          ', action = 'Lazy' },
+          { icon = '󰲽 ', key = 'm', desc = 'Mason         ', action = 'Mason' },
           { icon = ' ', key = 'q', desc = 'Quit          ', action = 'qa' },
         },
       },
