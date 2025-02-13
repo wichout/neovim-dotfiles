@@ -186,6 +186,7 @@ return {
         'eslint-lsp',
         'shfmt',
         'ruff',
+        'markdownlint',
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }

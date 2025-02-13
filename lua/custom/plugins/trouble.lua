@@ -1,50 +1,39 @@
 return {
   'folke/trouble.nvim',
   opts = {
-    modes = {
-      -- test = {
-      --   mode = 'diagnostics',
-      --   preview = {
-      --     type = 'split',
-      --     relative = 'win',
-      --     position = 'right',
-      --     size = 0.3,
-      --   },
-      -- },
-    },
     auto_close = true,
   }, -- for default options, refer to the configuration section for custom setup.
   cmd = 'Trouble',
   keys = {
     {
-      '<leader>xx',
+      '<leader>td',
       '<cmd>Trouble diagnostics toggle<cr>',
-      desc = 'Diagnostics (Trouble)',
+      desc = '[T]oggle Trouble [D]iagnostic',
     },
     {
-      '<leader>xX',
+      '<leader>tdb',
       '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
-      desc = 'Buffer Diagnostics (Trouble)',
+      desc = '[T]oggle Trouble [D]iagnostics [B]uffer',
     },
     {
-      '<leader>cs',
+      '<leader>ts',
       '<cmd>Trouble symbols toggle focus=false<cr>',
-      desc = 'Symbols (Trouble)',
+      desc = '[T]rouble Trouble [S]ymbols',
     },
     {
-      '<leader>cl',
+      '<leader>tl',
       '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
-      desc = 'LSP Definitions / references / ... (Trouble)',
+      desc = '[T]rouble Trouble [L]SP',
     },
     {
-      '<leader>xL',
+      '<leader>tll',
       '<cmd>Trouble loclist toggle<cr>',
-      desc = 'Location List (Trouble)',
+      desc = '[T]oggle Trouble [L]ocal [L]ist',
     },
     {
-      '<leader>xQ',
+      '<leader>tq',
       '<cmd>Trouble qflist toggle<cr>',
-      desc = 'Quickfix List (Trouble)',
+      desc = '[T]oggle Trouble [Q]uickfix List',
     },
   },
 }

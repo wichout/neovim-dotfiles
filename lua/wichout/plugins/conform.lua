@@ -31,6 +31,9 @@ return {
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
+      bash = { 'shfmr' },
+      zsh = { 'shfmr' },
+      sh = { 'shfmr' },
       javascript = { 'prettierd' },
       typescript = { 'prettierd' },
       json = { 'prettierd' },
