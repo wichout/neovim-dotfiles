@@ -25,17 +25,15 @@ require('lazy').setup({
   -- you do for a plugin at the top level, you can do for a dependency.
   --
   -- Use the `dependencies` key to specify the dependencies of a particular plugin
-
   require 'wichout.plugins.autopairs',
   require 'wichout.plugins.cmp',
   require 'wichout.plugins.color-scheme',
   require 'wichout.plugins.conform',
-  -- require 'wichout.plugins.debug',
+  require 'wichout.plugins.debug',
   require 'wichout.plugins.gitsigns',
   require 'wichout.plugins.indent_line',
   require 'wichout.plugins.mini',
-  -- require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.lint',
+  require 'wichout.plugins.lint',
   require 'wichout.plugins.lsp-config',
   require 'wichout.plugins.telescope',
   require 'wichout.plugins.treesitter',
