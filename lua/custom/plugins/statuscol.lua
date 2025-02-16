@@ -8,7 +8,7 @@ return {
     require('statuscol').setup {
       relculright = true,
       segments = {
-        { sign = { namespace = { '.*' }, colwidth = 1 } },
+        { sign = { name = { '.*' }, namespace = { '.*' }, maxwidth = 1, colwidth = 1 } },
         { text = { builtin.lnumfunc, ' ' }, condition = { true, builtin.not_empty } },
       },
     }

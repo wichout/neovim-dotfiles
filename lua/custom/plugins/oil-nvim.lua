@@ -20,6 +20,6 @@ return {
         },
       },
     }
-    vim.keymap.set('n', '<leader>oo', require('oil').toggle_float, { desc = '[O]pen [O]il' })
+    vim.keymap.set('n', '<leader>to', require('oil').toggle_float, { desc = '[T]oggle [O]il' })
   end,
 }
