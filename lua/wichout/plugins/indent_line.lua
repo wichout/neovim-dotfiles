@@ -7,7 +7,6 @@ return {
     opts = {
       indent = {
         char = '▏',
-        -- tab_char = '▏',
         smart_indent_cap = true,
         repeat_linebreak = false,
       },
@@ -20,8 +19,6 @@ return {
         filetypes = {
           'dashboard',
           'help',
-          'neo-tree',
-          'Trouble',
           'trouble',
           'lazy',
           'mason',

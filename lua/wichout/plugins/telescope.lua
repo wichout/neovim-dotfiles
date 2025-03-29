@@ -57,27 +57,22 @@ return {
         path_display = { 'truncate' },
         layout_config = {
           prompt_position = 'top',
-          width = 0.6,
-          height = 0.6,
-        },
-        file_ignore_patterns = {
-          'node_modules',
-          '.git',
+          width = 0.7,
+          height = 0.7,
         },
       },
       pickers = {
-        find_command = {
-          'fd',
-          '--type',
-          'f',
-          '--hidden',
-          '--follow',
-          '--exclude',
-          '.git',
-          'node_modules',
-        },
         find_files = {
-          hidden = true,
+          find_command = {
+            'fd',
+            '--type',
+            'f',
+            '--strip-cwd-prefix',
+            '--hidden',
+            '--no-ignore-vcs',
+            '--exclude',
+            '{.git,.venv,__pycache__}',
+          },
         },
       },
       extensions = {
