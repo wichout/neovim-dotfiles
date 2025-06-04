@@ -7,19 +7,18 @@ return {
     'MunifTanjim/nui.nvim',
   },
   opts = {
-    messages = {
-      enabled = true,
-    },
-    notify = {
-      enabled = true,
-    },
+    -- messages = { enabled = false },
     lsp = {
-      progress = {
-        enabled = false,
-      },
+      progress = { enabled = false },
+      hover = { enabled = false },
+      signature = { enabled = false },
+      message = { enabled = false },
     },
     presets = {
       bottom_search = false,
+    },
+    notify = {
+      enabled = false,
     },
   },
 }

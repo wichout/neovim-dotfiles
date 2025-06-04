@@ -32,7 +32,6 @@ require('lazy').setup({
   require 'wichout.plugins.conform',
   require 'wichout.plugins.debug',
   require 'wichout.plugins.gitsigns',
-  require 'wichout.plugins.indent_line',
   require 'wichout.plugins.mini',
   require 'wichout.plugins.lint',
   require 'wichout.plugins.lsp-config',
