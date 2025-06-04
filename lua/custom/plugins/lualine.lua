@@ -30,6 +30,7 @@ return {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff', 'diagnostic' },
         lualine_c = {
+          'tabs',
           function()
             return require('lsp-progress').progress()
           end,
@@ -52,8 +53,8 @@ return {
       },
       winbar = {
         lualine_c = {
-          'filename',
           {
+            'filename',
             function()
               return navic.get_location()
             end,
@@ -63,19 +64,11 @@ return {
           },
         },
       },
-      -- inactive_winbar = {
-      --   lualine_c = {
-      --     'filename',
-      --     {
-      --       function()
-      --         return navic.get_location()
-      --       end,
-      --       cond = function()
-      --         return navic.is_available()
-      --       end,
-      --     },
-      --   },
-      -- },
+      inactive_winbar = {
+        lualine_c = {
+          'filename',
+        },
+      },
     }
     vim.api.nvim_create_augroup('lualine_augroup', { clear = true })
     vim.api.nvim_create_autocmd('User', {
