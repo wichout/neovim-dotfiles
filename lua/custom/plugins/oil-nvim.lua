@@ -20,6 +20,6 @@ return {
         },
       },
     }
-    vim.keymap.set('n', '<leader>to', require('oil').toggle_float, { desc = '[T]oggle [O]il' })
+    vim.keymap.set('n', '<leader>oo', '<CMD>Oil --float<CR>', { desc = '[O]pen [O]il Browser' })
   end,
 }
