@@ -2,10 +2,6 @@ return {
   'nvim-lualine/lualine.nvim',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
-    {
-      'linrongbin16/lsp-progress.nvim',
-      opts = {},
-    },
   },
   config = function()
     local navic = require 'nvim-navic'
@@ -28,12 +24,9 @@ return {
       },
       sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostic' },
+        lualine_b = { 'branch', 'diff' },
         lualine_c = {
-          'tabs',
-          function()
-            return require('lsp-progress').progress()
-          end,
+          'diagnostic',
         },
         lualine_x = {
           'encoding',
@@ -70,11 +63,11 @@ return {
         },
       },
     }
-    vim.api.nvim_create_augroup('lualine_augroup', { clear = true })
-    vim.api.nvim_create_autocmd('User', {
-      group = 'lualine_augroup',
-      pattern = 'LspProgressStatusUpdated',
-      callback = require('lualine').refresh,
-    })
+    -- vim.api.nvim_create_augroup('lualine_augroup', { clear = true })
+    -- vim.api.nvim_create_autocmd('User', {
+    --   group = 'lualine_augroup',
+    --   pattern = 'LspProgressStatusUpdated',
+    --   callback = require('lualine').refresh,
+    -- })
   end,
 }

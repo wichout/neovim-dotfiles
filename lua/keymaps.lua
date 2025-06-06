@@ -27,6 +27,11 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set('n', '<C-Up>', '<CMD>resize +2<CR>', { desc = 'Increase window height' })
+vim.keymap.set('n', '<C-Down>', '<CMD>resize -2<CR>', { desc = 'Decrease window height' })
+vim.keymap.set('n', '<C-Left>', '<CMD>vertical resize +2<CR>', { desc = 'Increase window width' })
+vim.keymap.set('n', '<C-Right>', '<CMD>vertical resize -2<CR>', { desc = 'Decrease window width' })
+
 vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Quit the focused window' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -42,4 +47,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.api.nvim_create_autocmd('QuickFixCmdPost', {
+  callback = function()
+    vim.cmd [[Trouble qflist open]]
+  end,
+})
 -- vim: ts=2 sts=2 et

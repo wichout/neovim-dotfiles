@@ -20,6 +20,6 @@ return {
         },
       },
     }
-    vim.keymap.set('n', '<leader>oo', '<CMD>Oil --float<CR>', { desc = '[O]pen [O]il Browser' })
+    vim.keymap.set('n', '<leader>oo', '<CMD>Oil --float<CR>', { desc = '[O]pen [O]il' })
   end,
 }

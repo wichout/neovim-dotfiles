@@ -11,24 +11,9 @@ return {
       desc = '[T]oggle Trouble [D]iagnostic',
     },
     {
-      '<leader>tdb',
+      '<leader>tB',
       '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
-      desc = '[T]oggle Trouble [D]iagnostics [B]uffer',
-    },
-    {
-      '<leader>ts',
-      '<cmd>Trouble symbols toggle focus=false<cr>',
-      desc = '[T]rouble Trouble [S]ymbols',
-    },
-    {
-      '<leader>tl',
-      '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
-      desc = '[T]rouble Trouble [L]SP',
-    },
-    {
-      '<leader>tll',
-      '<cmd>Trouble loclist toggle<cr>',
-      desc = '[T]oggle Trouble [L]ocal [L]ist',
+      desc = '[T]oggle Trouble Diagnostics [B]uffer',
     },
     {
       '<leader>tq',
