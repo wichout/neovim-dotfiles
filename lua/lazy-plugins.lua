@@ -26,7 +26,6 @@ require('lazy').setup({
   --
   -- Use the `dependencies` key to specify the dependencies of a particular plugin
   require 'wichout.plugins.autopairs',
-  -- require 'wichout.plugins.cmp',
   require 'wichout.plugins.blink-cmp',
   require 'wichout.plugins.color-scheme',
   require 'wichout.plugins.conform',
@@ -35,7 +34,6 @@ require('lazy').setup({
   require 'wichout.plugins.mini',
   require 'wichout.plugins.lint',
   require 'wichout.plugins.lsp-config',
-  require 'wichout.plugins.telescope',
   require 'wichout.plugins.treesitter',
   require 'wichout.plugins.todo-comments',
   require 'wichout.plugins.which-key',

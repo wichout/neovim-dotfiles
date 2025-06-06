@@ -7,44 +7,122 @@ return {
     animate = { enabled = true },
     bigfile = { enabled = true },
     bufdelete = { enabled = true },
+    indent = { enabled = true },
+    picker = { enabled = true },
+    statuscolumn = {
+      enabled = true,
+      left = { 'mark', 'sign' },
+      right = { 'git' },
+      folds = {
+        open = false,
+        git_hl = false,
+      },
+      git = {
+        patterns = { 'GitSign', 'MiniDiffSign' },
+      },
+      refresh = 50,
+    },
     dashboard = {
       enabled = true,
       sections = {
         { section = 'header' },
         { section = 'keys', gap = 1, padding = 1 },
-        { pane = 2, icon = ' ', title = 'Recent Files', section = 'recent_files', indent = 2, padding = 1 },
-        { pane = 2, icon = ' ', title = 'Projects', section = 'projects', indent = 2, padding = 1 },
+        { pane = 1, icon = ' ', title = 'Projects', section = 'projects', indent = 2, padding = 1 },
       },
     },
     notifier = {
       enabled = true,
-      style = 'compact',
       timeout = 2500,
     },
-    indent = { enabled = true },
     lazygit = {
       configure = true,
-      win = {
-        style = 'lazygit',
-      },
     },
   },
   keys = {
+    -- lsp
     {
-      '<leader>olg',
+      '<leader>rf',
+      function()
+        require('snacks').rename.rename_file()
+      end,
+      desc = '[R]ename [F]ile',
+    },
+    -- lazygit
+    {
+      '<leader>ol',
       function()
         require('snacks').lazygit()
       end,
-      desc = '[O]pen [L]azy [G]it',
-      mode = { 'n', 'v' },
+      desc = '[O]pen [L]azy Git',
+      mode = { 'n' },
     },
+    -- buffer delete
     {
       '<leader>db',
       function()
         require('snacks').bufdelete()
       end,
       desc = '[D]elete [B]uffer',
-      mode = { 'n', 'v' },
+    },
+    -- terminal
+    {
+      '<leader>tt',
+      function()
+        require('snacks').terminal()
+      end,
+      desc = '[T]oggle [T]erminal',
+      mode = { 'n', 't' },
+    },
+    -- notifier
+    {
+      '<leader>N',
+      function()
+        require('snacks').notifier.hide()
+      end,
+      desc = 'Dismiss All [N]otificacions',
+    },
+    -- picker
+    {
+      '<leader>sb',
+      function()
+        Snacks.picker.buffers()
+      end,
+      desc = '[S]earch [B]uffers',
+    },
+    {
+      '<leader>sf',
+      function()
+        Snacks.picker.files()
+      end,
+      desc = '[S]earch [F]iles',
+    },
+    {
+      '<leader>sg',
+      function()
+        Snacks.picker.git_files()
+      end,
+      desc = '[S]earch [G]it Files',
+    },
+    {
+      '<leader>sp',
+      function()
+        Snacks.picker.projects()
+      end,
+      desc = '[S]earch [P]rojects',
+    },
+    {
+      '<leader>fr',
+      function()
+        Snacks.picker.recent()
+      end,
+      desc = '[F]ind [R]ecent',
+    },
+    {
+      '<leader>sg',
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = 'Grep',
     },
   },
 }
