@@ -9,34 +9,10 @@ return {
     bufdelete = { enabled = true },
     indent = { enabled = true },
     picker = { enabled = true },
-    statuscolumn = {
-      enabled = true,
-      left = { 'mark', 'sign' },
-      right = { 'git' },
-      folds = {
-        open = false,
-        git_hl = false,
-      },
-      git = {
-        patterns = { 'GitSign', 'MiniDiffSign' },
-      },
-      refresh = 50,
-    },
-    dashboard = {
-      enabled = true,
-      sections = {
-        { section = 'header' },
-        { section = 'keys', gap = 1, padding = 1 },
-        { pane = 1, icon = ' ', title = 'Projects', section = 'projects', indent = 2, padding = 1 },
-      },
-    },
-    notifier = {
-      enabled = true,
-      timeout = 2500,
-    },
-    lazygit = {
-      configure = true,
-    },
+    lazygit = { configure = true },
+    notifier = { enabled = true, timeout = 2500 },
+    statuscolumn = require 'wichout.plugins.snacks.statuscolumn',
+    dashboard = require 'wichout.plugins.snacks.dashboard',
   },
   keys = {
     -- lsp

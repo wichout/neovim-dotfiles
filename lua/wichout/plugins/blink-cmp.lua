@@ -21,18 +21,18 @@ return {
           -- `friendly-snippets` contains a variety of premade snippets.
           --    See the README about individual language/framework/plugin snippets:
           --    https://github.com/rafamadriz/friendly-snippets
-          -- {
-          --   'rafamadriz/friendly-snippets',
-          --   config = function()
-          --     require('luasnip.loaders.from_vscode').lazy_load()
-          --   end,
-          -- },
+          {
+            'rafamadriz/friendly-snippets',
+            config = function()
+              require('luasnip.loaders.from_vscode').lazy_load()
+            end,
+          },
         },
 
         opts = {},
       },
-      'onsails/lspkind.nvim',
       'folke/lazydev.nvim',
+      { 'nvim-tree/nvim-web-devicons', opts = {} },
     },
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config
@@ -47,13 +47,10 @@ return {
         -- 'none' for no mappings
         --
         -- For an understanding of why the 'default' preset is recommended,
-
         -- you will need to read `:help ins-completion`
         --
-
         -- No, but seriously. Please read `:help ins-completion`, it is really good!
         --
-
         -- All presets have the following mappings:
         -- <tab>/<s-tab>: move to right/left of your snippet expansion
         -- <c-space>: Open menu or open docs if already open
@@ -82,10 +79,23 @@ return {
               kind_icon = {
                 text = function(ctx)
                   local icon = ctx.kind_icon
-                  icon = require('lspkind').symbolic(ctx.kind, {
-                    mode = 'symbol',
-                  })
+                  if vim.tbl_contains({ 'Path' }, ctx.source_name) then
+                    local dev_icon, _ = require('nvim-web-devicons').get_icon(ctx.label)
+                    if dev_icon then
+                      icon = dev_icon
+                    end
+                  end
                   return icon .. ctx.icon_gap
+                end,
+                highlight = function(ctx)
+                  local hl = ctx.kind_hl
+                  if vim.tbl_contains({ 'Path' }, ctx.source_name) then
+                    local dev_icon, dev_hl = require('nvim-web-devicons').get_icon(ctx.label)
+                    if dev_icon then
+                      hl = dev_hl
+                    end
+                  end
+                  return hl
                 end,
               },
             },

@@ -25,19 +25,20 @@ require('lazy').setup({
   -- you do for a plugin at the top level, you can do for a dependency.
   --
   -- Use the `dependencies` key to specify the dependencies of a particular plugin
-  require 'wichout.plugins.autopairs',
-  require 'wichout.plugins.blink-cmp',
-  require 'wichout.plugins.color-scheme',
-  require 'wichout.plugins.conform',
-  require 'wichout.plugins.debug',
-  require 'wichout.plugins.gitsigns',
-  require 'wichout.plugins.mini',
-  require 'wichout.plugins.lint',
-  require 'wichout.plugins.lsp-config',
-  require 'wichout.plugins.treesitter',
-  require 'wichout.plugins.todo-comments',
-  require 'wichout.plugins.which-key',
+  -- require 'wichout.plugins.autopairs',
+  -- require 'wichout.plugins.blink-cmp',
+  -- require 'wichout.plugins.color-scheme',
+  -- require 'wichout.plugins.conform',
+  -- require 'wichout.plugins.debug',
+  -- require 'wichout.plugins.gitsigns',
+  -- require 'wichout.plugins.mini',
+  -- require 'wichout.plugins.lint',
+  -- require 'wichout.plugins.lsp-config',
+  -- require 'wichout.plugins.treesitter',
+  -- require 'wichout.plugins.todo-comments',
+  -- require 'wichout.plugins.which-key',
 
+  { import = 'wichout.plugins' },
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   { import = 'custom.plugins' },
