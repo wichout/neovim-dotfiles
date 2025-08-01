@@ -49,14 +49,6 @@ return {
       desc = '[T]oggle [T]erminal',
       mode = { 'n', 't' },
     },
-    -- notifier
-    {
-      '<leader>N',
-      function()
-        require('snacks').notifier.hide()
-      end,
-      desc = 'Dismiss All [N]otificacions',
-    },
     -- picker
     {
       '<leader>sb',
@@ -98,7 +90,7 @@ return {
       function()
         Snacks.picker.grep()
       end,
-      desc = 'Grep',
+      desc = '[S]earch [G]rep',
     },
   },
 }

@@ -38,14 +38,6 @@ return {
     --- @type blink.cmp.Config
     opts = {
       keymap = {
-        -- 'default' (recommended) for mappings similar to built-in completions
-        --   <c-y> to accept ([y]es) the completion.
-        --    This will auto-import if your LSP supports it.
-        --    This will expand snippets if the LSP sent a snippet.
-        -- 'super-tab' for tab to accept
-        -- 'enter' for enter to accept
-        -- 'none' for no mappings
-        --
         -- For an understanding of why the 'default' preset is recommended,
         -- you will need to read `:help ins-completion`
         --
@@ -60,9 +52,7 @@ return {
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
         preset = 'default',
-
-        -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
-        --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
+        ['<C-a>'] = { 'show', 'show_documentation', 'hide_documentation' },
       },
       appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -72,30 +62,19 @@ return {
       completion = {
         -- By default, you may press `<c-space>` to show the documentation.
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
-        documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        documentation = { window = { border = 'none' }, auto_show = true, auto_show_delay_ms = 500 },
         menu = {
+          border = 'none',
           draw = {
+            columns = { { 'kind_icon' }, { 'label', gap = 1 } },
             components = {
-              kind_icon = {
+              label = {
+                width = { max = 60 },
                 text = function(ctx)
-                  local icon = ctx.kind_icon
-                  if vim.tbl_contains({ 'Path' }, ctx.source_name) then
-                    local dev_icon, _ = require('nvim-web-devicons').get_icon(ctx.label)
-                    if dev_icon then
-                      icon = dev_icon
-                    end
-                  end
-                  return icon .. ctx.icon_gap
+                  return require('colorful-menu').blink_components_text(ctx)
                 end,
                 highlight = function(ctx)
-                  local hl = ctx.kind_hl
-                  if vim.tbl_contains({ 'Path' }, ctx.source_name) then
-                    local dev_icon, dev_hl = require('nvim-web-devicons').get_icon(ctx.label)
-                    if dev_icon then
-                      hl = dev_hl
-                    end
-                  end
-                  return hl
+                  return require('colorful-menu').blink_components_highlight(ctx)
                 end,
               },
             },
@@ -103,10 +82,14 @@ return {
         },
       },
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev' },
+        default = { 'lsp', 'path', 'lazydev' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
         },
+      },
+      cmdline = {
+        keymap = { preset = 'inherit' },
+        completion = { menu = { auto_show = true } },
       },
       snippets = { preset = 'luasnip' },
       -- Blink.cmp includes an optional, recommended rust fuzzy matcher,
@@ -118,7 +101,7 @@ return {
       -- See :h blink-cmp-config-fuzzy for more information
       fuzzy = { implementation = 'lua' },
       -- Shows a signature help window while you type arguments for a function
-      signature = { enabled = true },
+      signature = { enabled = true, window = { border = 'none' } },
     },
   },
 }
