@@ -1,7 +1,6 @@
 return {
-  enabled = true,
   left = { 'mark', 'sign' },
-  right = { 'git' },
+  right = { 'git', 'fold' },
   folds = {
     open = false,
     git_hl = false,
