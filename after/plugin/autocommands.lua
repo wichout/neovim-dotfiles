@@ -7,14 +7,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
     end
 
-    map('gd', require('snacks').picker.lsp_definitions, '[G]oto [D]efinition')
+    map('gd', require('snacks').picker.lsp_definitions, '[G]oto [d]efinition')
     map('gD', require('snacks').picker.lsp_declarations, '[G]oto [D]eclaration')
-    map('gr', require('snacks').picker.lsp_references, '[G]oto [R]eferences')
+    map('gr', require('snacks').picker.lsp_references, '[G]oto [r]eferences')
     map('gI', require('snacks').picker.lsp_implementations, '[G]oto [I]mplementation')
-    map('gy', require('snacks').picker.lsp_type_definitions, '[G]oto T[y]pe Definition')
+    map('gtd', require('snacks').picker.lsp_type_definitions, '[G]oto [t]ype [d]efinition')
     map('<leader>ss', require('snacks').picker.lsp_symbols, 'LSP [S]ymbol[s]')
     map('<leader>sS', require('snacks').picker.lsp_workspace_symbols, 'LSP Workspace [S]ymbols')
-    map('rn', vim.lsp.buf.rename, '[R]e[n]ame')
+    map('<leader>rs', vim.lsp.buf.rename, '[R]ename [S]ymbol')
     map('gca', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
 
     -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
@@ -108,5 +108,15 @@ vim.api.nvim_create_autocmd('LspProgress', {
         notif.icon = #progress[client.id] == 0 and ' ' or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
       end,
     })
+  end,
+})
+
+-- Snack Rename integration with Oil.Nvim
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'OilActionsPost',
+  callback = function(event)
+    if event.data.actions.type == 'move' then
+      Snacks.rename.on_rename_file(event.data.actions.src_url, event.data.actions.dest_url)
+    end
   end,
 })
