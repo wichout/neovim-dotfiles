@@ -74,4 +74,8 @@ vim.opt.termguicolors = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- Using Ripgrep instead grep
+vim.opt.grepprg = 'rp --vimgrep'
+vim.opt.grepformat = '%f:%l:%c:%m'
+
 -- vim: ts=2 sts=2 et

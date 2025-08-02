@@ -4,18 +4,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(event)
     local map = function(keys, func, desc, mode)
       mode = mode or 'n'
-      vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+      vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
     end
 
-    map('gd', require('snacks').picker.lsp_definitions, '[G]oto [d]efinition')
-    map('gD', require('snacks').picker.lsp_declarations, '[G]oto [D]eclaration')
-    map('gr', require('snacks').picker.lsp_references, '[G]oto [r]eferences')
-    map('gI', require('snacks').picker.lsp_implementations, '[G]oto [I]mplementation')
-    map('gtd', require('snacks').picker.lsp_type_definitions, '[G]oto [t]ype [d]efinition')
-    map('<leader>ss', require('snacks').picker.lsp_symbols, 'LSP [S]ymbol[s]')
-    map('<leader>sS', require('snacks').picker.lsp_workspace_symbols, 'LSP Workspace [S]ymbols')
-    map('<leader>rs', vim.lsp.buf.rename, '[R]ename [S]ymbol')
-    map('gca', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+    map('<leader>lgd', require('snacks').picker.lsp_definitions, '[L]SP [g]oto [d]efinition')
+    map('<leader>lgr', require('snacks').picker.lsp_references, '[L]SP [g]oto [r]eferences')
+    map('<leader>lgD', require('snacks').picker.lsp_declarations, '[L]SP [g]oto [D]eclaration')
+    map('<leader>lgI', require('snacks').picker.lsp_implementations, '[L]SP [g]oto [I]mplementation')
+    map('<leader>lgt', require('snacks').picker.lsp_type_definitions, '[L]SP [g]oto [t]ype definition')
+    map('<leader>ls', require('snacks').picker.lsp_symbols, '[L]SP [S]ymbols')
+    map('<leader>lS', require('snacks').picker.lsp_workspace_symbols, '[L]SP workspace [S]ymbols')
+    map('<leader>lr', vim.lsp.buf.rename, '[L]SP [r]ename symbol')
+    map('<leader>lgc', vim.lsp.buf.code_action, '[L]SP [g]oto code action', { 'n', 'x' })
 
     -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
     ---@param client vim.lsp.Client

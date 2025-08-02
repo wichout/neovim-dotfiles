@@ -23,10 +23,10 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- See `:help window-resizing for a list of all window resizing commands`
-vim.keymap.set('n', '<C-Up>', '<CMD>resize +2<CR>', { desc = 'Increase window height' })
-vim.keymap.set('n', '<C-Down>', '<CMD>resize -2<CR>', { desc = 'Decrease window height' })
-vim.keymap.set('n', '<C-Left>', '<CMD>vertical resize +2<CR>', { desc = 'Increase window width' })
-vim.keymap.set('n', '<C-Right>', '<CMD>vertical resize -2<CR>', { desc = 'Decrease window width' })
+vim.keymap.set('n', '<C-Up>', '2<C-w>+', { desc = 'Increase window height' })
+vim.keymap.set('n', '<C-Down>', '2<C-w>-', { desc = 'Decrease window height' })
+vim.keymap.set('n', '<C-Left>', '2<C-w>>', { desc = 'Increase window width' })
+vim.keymap.set('n', '<C-Right>', '2<C-w><', { desc = 'Decrease window width' })
 
 vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Quit the focused window' })
 

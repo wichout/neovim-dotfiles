@@ -20,5 +20,22 @@ return {
     notify = {
       enabled = false,
     },
+    cmdline = {
+      opts = {
+        border = {
+          style = 'solid',
+          padding = { 0, 1 },
+        },
+        win_options = {
+          winhighlight = {
+            Normal = 'NormalFloat',
+            FloatBorder = 'NormalFloat', -- shouldn't this clear guifg?
+            IncSearch = '',
+            Search = '',
+          },
+          cursorline = false,
+        },
+      },
+    },
   },
 }

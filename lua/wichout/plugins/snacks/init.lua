@@ -46,11 +46,11 @@ return {
     },
     -- lsp
     {
-      '<leader>rf',
+      '<leader>dr',
       function()
         require('snacks').rename.rename_file()
       end,
-      desc = '[R]ename [f]ile',
+      desc = '[D]ocument [r]ename file',
     },
     -- lazygit
     {
@@ -63,11 +63,11 @@ return {
     },
     -- buffer delete
     {
-      '<leader>ddb',
+      '<leader>dd',
       function()
         require('snacks').bufdelete()
       end,
-      desc = '[D]ocument [D]elete [b]uffer',
+      desc = '[D]ocument [d]elete buffer',
     },
     -- terminal
     {
@@ -102,6 +102,20 @@ return {
       mode = { 'n', 'x' },
     },
     {
+      '<leader>sgg',
+      function()
+        Snacks.picker.git_grep()
+      end,
+      desc = '[S]earch [g]rep [g]it',
+    },
+    {
+      '<leader>sH',
+      function()
+        Snacks.picker.highlights()
+      end,
+      desc = 'Highlights',
+    },
+    {
       '<leader>sk',
       function()
         Snacks.picker.keymaps()
@@ -109,4 +123,9 @@ return {
       desc = '[S]earch [k]eymaps',
     },
   },
+  init = function()
+    vim.api.nvim_set_hl(0, 'SnacksPickerBorder', {
+      link = 'NormalFloat', -- o puedes definir tú mismo los colores
+    })
+  end,
 }

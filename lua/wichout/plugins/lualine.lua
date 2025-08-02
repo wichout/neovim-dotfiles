@@ -17,6 +17,7 @@ return {
           winbar = {
             'undotree',
             'trouble',
+            'qf',
           },
         },
         ignore_focus = {
@@ -40,6 +41,21 @@ return {
         lualine_y = { 'progress' },
         lualine_z = { 'location' },
       },
+      inactive_sections = {
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff' },
+        lualine_c = {
+          'diagnostic',
+        },
+        lualine_x = {
+          'encoding',
+          'fileformat',
+          'filetype',
+        },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' },
+      },
+
       winbar = {
         lualine_c = {
           {
