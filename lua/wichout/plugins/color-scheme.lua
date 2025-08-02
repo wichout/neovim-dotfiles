@@ -1,9 +1,10 @@
 return {
-  'neanias/everforest-nvim',
+  -- 'neanias/everforest-nvim',
+  'rebelot/kanagawa.nvim',
   lazy = false,
   priority = 1000,
   config = function()
-    vim.cmd [[colorscheme everforest]]
+    vim.cmd [[colorscheme kanagawa-wave]]
 
     local colors = vim.api.nvim_get_hl(0, { name = 'Label' })
     vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = colors.fg })

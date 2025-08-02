@@ -11,9 +11,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
-
-vim.api.nvim_create_autocmd('QuickFixCmdPost', {
-  callback = function()
-    vim.cmd [[Trouble qflist open]]
-  end,
-})

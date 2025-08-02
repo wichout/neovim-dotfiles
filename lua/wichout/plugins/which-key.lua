@@ -54,15 +54,22 @@ return { -- Useful plugin to show you pending keybinds.
       },
     },
 
+    triggers = {
+      { '<auto>', mode = 'nixsotc' },
+      { 's', mode = { 'n', 'v' } },
+    },
+
     -- Document existing key chains
     spec = {
       { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
       { '<leader>d', group = '[D]ocument' },
+      { '<leader>dt', group = '[D]ocument [T]oggle' },
+      { '<leader>dd', group = '[D]ocument [D]elete' },
+      { '<leader>f', group = '[F]ind', mode = { 'n', 'v' } },
       { '<leader>r', group = '[R]ename' },
       { '<leader>s', group = '[S]earch' },
-      { '<leader>w', group = '[W]orkspace' },
       { '<leader>t', group = '[T]oggle', mode = { 'n' } },
-      { '<leader>o', group = '[O]pen' },
+      { '<leader>o', group = '[O]pen', mode = { 'n' } },
       { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
     },
   },
