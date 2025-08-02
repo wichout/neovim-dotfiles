@@ -14,9 +14,9 @@ return {
       float = {
         max_width = 50,
         max_height = 20,
-        border = 'rounded',
+        border = 'solid',
         win_options = {
-          winhl = 'Normal:Normal,Float:Float',
+          winhl = 'Normal:NormalFloat,Float:NormalFloat',
         },
       },
     }

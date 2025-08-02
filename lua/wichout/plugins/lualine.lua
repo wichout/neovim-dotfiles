@@ -7,19 +7,23 @@ return {
     local navic = require 'nvim-navic'
     require('lualine').setup {
       options = {
-        theme = 'everforest',
+        theme = 'auto',
         component_separators = { left = '', right = '' },
         disabled_filetypes = {
           statusline = {
-            'dashboard',
-            'trouble',
             'undotree',
+            'trouble',
           },
           winbar = {
-            'dashboard',
-            'trouble',
             'undotree',
+            'trouble',
           },
+        },
+        ignore_focus = {
+          'trouble',
+          'oil',
+          'snacks_picker_input',
+          'snacks_terminal',
         },
       },
       sections = {
