@@ -8,22 +8,22 @@ return {
     {
       '<leader>dtD',
       '<cmd>Trouble diagnostics toggle<cr>',
-      desc = '[D]ocument [T]oggle [D]iagnostics',
+      desc = '[D]iagnostics',
     },
     {
       '<leader>dtb',
       '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
-      desc = '[D]ocument [T]oggle [b]uffer diagnostics',
+      desc = '[b]uffer diagnostics',
     },
     {
       '<leader>dtd',
       '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
-      desc = '[D]ocument [T]oggle [d]efinitions',
+      desc = '[d]efinitions',
     },
     {
       '<leader>dts',
       '<cmd>Trouble symbols toggle focus=false<cr>',
-      desc = '[D]ocument [T]oggle [s]ymbols',
+      desc = '[s]ymbols',
     },
   },
 }

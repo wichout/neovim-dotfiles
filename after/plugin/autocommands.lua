@@ -7,15 +7,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
     end
 
-    map('<leader>lgd', require('snacks').picker.lsp_definitions, '[L]SP [g]oto [d]efinition')
-    map('<leader>lgr', require('snacks').picker.lsp_references, '[L]SP [g]oto [r]eferences')
-    map('<leader>lgD', require('snacks').picker.lsp_declarations, '[L]SP [g]oto [D]eclaration')
-    map('<leader>lgI', require('snacks').picker.lsp_implementations, '[L]SP [g]oto [I]mplementation')
-    map('<leader>lgt', require('snacks').picker.lsp_type_definitions, '[L]SP [g]oto [t]ype definition')
-    map('<leader>ls', require('snacks').picker.lsp_symbols, '[L]SP [S]ymbols')
-    map('<leader>lS', require('snacks').picker.lsp_workspace_symbols, '[L]SP workspace [S]ymbols')
-    map('<leader>lr', vim.lsp.buf.rename, '[L]SP [r]ename symbol')
-    map('<leader>lgc', vim.lsp.buf.code_action, '[L]SP [g]oto code action', { 'n', 'x' })
+    map('<leader>lgd', require('snacks').picker.lsp_definitions, '[g]oto [d]efinition')
+    map('<leader>lgr', require('snacks').picker.lsp_references, '[g]oto [r]eferences')
+    map('<leader>lgD', require('snacks').picker.lsp_declarations, '[g]oto [D]eclaration')
+    map('<leader>lgI', require('snacks').picker.lsp_implementations, '[g]oto [I]mplementation')
+    map('<leader>lt', require('snacks').picker.lsp_type_definitions, '[t]ype definition')
+    map('<leader>ls', require('snacks').picker.lsp_symbols, 'document [s]ymbols')
+    map('<leader>lS', require('snacks').picker.lsp_workspace_symbols, 'workspace [S]ymbols')
+    map('<leader>lr', vim.lsp.buf.rename, '[r]ename symbol')
+    map('<leader>lc', vim.lsp.buf.code_action, '[c]ode action', { 'n', 'x' })
+    map('K', vim.lsp.buf.hover, '[H]over Documentation')
 
     -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
     ---@param client vim.lsp.Client

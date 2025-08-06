@@ -21,28 +21,32 @@ return {
       function()
         Snacks.picker.git_files()
       end,
-      desc = '[F]ind [g]it Files',
+      desc = '[g]it files',
+      mode = { 'n' },
     },
     {
       '<leader>ff',
       function()
         Snacks.picker.files()
       end,
-      desc = '[F]ind [f]iles',
+      desc = '[f]iles',
+      mode = { 'n' },
     },
     {
       '<leader>fb',
       function()
         Snacks.picker.buffers()
       end,
-      desc = '[F]ind [b]uffers',
+      desc = '[b]uffers',
+      mode = { 'n' },
     },
     {
       '<leader>fp',
       function()
         Snacks.picker.projects()
       end,
-      desc = '[F]ind [p]rojects',
+      desc = '[p]rojects',
+      mode = { 'n' },
     },
     -- lsp
     {
@@ -50,7 +54,8 @@ return {
       function()
         require('snacks').rename.rename_file()
       end,
-      desc = '[D]ocument [r]ename file',
+      desc = '[r]ename file',
+      mode = { 'n' },
     },
     -- lazygit
     {
@@ -58,16 +63,17 @@ return {
       function()
         require('snacks').lazygit()
       end,
-      desc = '[O]pen [l]azy git',
+      desc = '[l]azy git',
       mode = { 'n' },
     },
     -- buffer delete
     {
-      '<leader>dd',
+      '<leader>db',
       function()
         require('snacks').bufdelete()
       end,
-      desc = '[D]ocument [d]elete buffer',
+      desc = '[d]elete buffer',
+      mode = { 'n' },
     },
     -- terminal
     {
@@ -75,7 +81,7 @@ return {
       function()
         require('snacks').terminal '$SHELL'
       end,
-      desc = '[O]pen [t]erminal',
+      desc = '[t]erminal',
       mode = { 'n' },
     },
     -- Grep
@@ -84,21 +90,23 @@ return {
       function()
         Snacks.picker.lines()
       end,
-      desc = '[S]earch [g]rep [b]uffer Lines',
+      desc = 'current [b]uffer',
+      mode = { 'n' },
     },
     {
       '<leader>sgB',
       function()
         Snacks.picker.grep_buffers()
       end,
-      desc = '[S]earch [g]rep Open [B]uffers',
+      desc = 'open [B]uffers',
+      mode = { 'n' },
     },
     {
       '<leader>sgs',
       function()
         Snacks.picker.grep_word()
       end,
-      desc = '[S]earch [g]rep [s]election',
+      desc = '[s]election',
       mode = { 'n', 'x' },
     },
     {
@@ -106,26 +114,26 @@ return {
       function()
         Snacks.picker.git_grep()
       end,
-      desc = '[S]earch [g]rep [g]it',
+      desc = '[g]it files',
     },
     {
       '<leader>sH',
       function()
         Snacks.picker.highlights()
       end,
-      desc = 'Highlights',
+      desc = '[H]ighlights',
     },
     {
       '<leader>sk',
       function()
         Snacks.picker.keymaps()
       end,
-      desc = '[S]earch [k]eymaps',
+      desc = '[k]eymaps',
     },
   },
   init = function()
     vim.api.nvim_set_hl(0, 'SnacksPickerBorder', {
-      link = 'NormalFloat', -- o puedes definir tú mismo los colores
+      link = 'NormalFloat',
     })
   end,
 }
