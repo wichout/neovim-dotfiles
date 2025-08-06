@@ -1,4 +1,5 @@
 return {
+  { 'xzbdmw/colorful-menu.nvim' },
   { -- Autocompletion
     'saghen/blink.cmp',
     event = 'VimEnter',
@@ -99,7 +100,7 @@ return {
       -- the rust implementation via `'prefer_rust_with_warning'`
       --
       -- See :h blink-cmp-config-fuzzy for more information
-      fuzzy = { implementation = 'lua' },
+      fuzzy = { implementation = 'lua', sorts = { 'exact', 'kind', 'score' } },
       -- Shows a signature help window while you type arguments for a function
       signature = { enabled = true, window = { border = 'none' } },
     },
