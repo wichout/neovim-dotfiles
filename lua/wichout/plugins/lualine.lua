@@ -25,6 +25,8 @@ return {
           'oil',
           'snacks_picker_input',
           'snacks_terminal',
+          'lazy',
+          'mason',
         },
       },
       sections = {

@@ -53,35 +53,50 @@ return {
         underline = false,
       }
 
-      -- LSP servers and clients are able to communicate to each other what features they support.
-      --  By default, Neovim doesn't support everything that is in the LSP specification.
-      --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
-      --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
-
-      local ensure_installed = {
-        'ts_ls',
-        'tailwindcss',
-        'pylsp',
-        'ruff',
-        'lua_ls',
-        'stylua',
-        'prettierd',
-        'eslint-lsp',
-        'shfmt',
-        'ruff',
-        'markdownlint',
-      }
-
-      mason_tool_installer.setup { ensure_installed = ensure_installed }
-
       vim.lsp.config('*', { capabilities = capabilities })
 
-      mason_lspconfig.setup {
-        ensure_installed = {},
-        automatic_enable = {
-          exclude = { 'tailwindcss' },
-        },
+      local servers = {
+        'ruff',
+        'stylua',
+        'prettierd',
+        'shfmt',
+        'yamlfmt',
+        'markdownlint',
+        'lua_ls',
+        'ts_ls',
+        'basedpyright',
       }
+
+      mason_tool_installer.setup {
+        ensure_installed = servers,
+      }
+
+      vim.lsp.enable { 'ts_ls', 'basedpyright', 'ruff', 'lua_ls' }
+
+      vim.lsp.config('lua_ls', {
+        settings = {
+          ['Lua'] = {
+            completion = {
+              callSnippet = 'Replace',
+            },
+            hint = {
+              enable = true,
+            },
+            diagnostics = { disable = { 'missing-fields' } },
+          },
+        },
+      })
+
+      vim.lsp.config('basedpyright', {
+        settings = {
+          ['basedpyright'] = {
+            analysis = {
+              ignore = { '*' },
+            },
+            disableOrganizeImports = true,
+          },
+        },
+      })
     end,
   },
 }

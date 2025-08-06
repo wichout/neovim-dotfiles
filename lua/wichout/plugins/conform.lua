@@ -37,8 +37,8 @@ return {
       javascript = { 'prettierd' },
       typescript = { 'prettierd' },
       json = { 'prettierd' },
-      yaml = { 'prettierd' },
-      markdown = { 'prettierd' },
+      yaml = { 'yamlfmt' },
+      markdown = { 'markdownlint' },
       python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
 
       -- You can use 'stop_after_first' to run the first available formatter from the list
