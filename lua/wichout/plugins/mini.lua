@@ -13,9 +13,6 @@ return { -- Collection of various small independent plugins/modules
     -- Split and join arguments
     require('mini.splitjoin').setup()
 
-    -- Session manager
-    require('mini.sessions').setup()
-
     --  Check out: https://github.com/echasnovski/mini.nvim
   end,
 }
